@@ -60,9 +60,10 @@ model Session {
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
-  email         String?   @unique
+  email         String   @unique
   emailVerified DateTime?
   image         String?
+  isGoogle      Boolean @default(true)
   accounts      Account[]
   sessions      Session[]
 }
@@ -75,13 +76,15 @@ model VerificationToken {
 
 model Profile{
   id String @db.ObjectId @id @map("_id") @default(auto())
-  username String @unique
+  userId String @db.ObjectId @unique
+  username String?
   name String @unique
   email String @unique
-  phone String @unique
-  hashedPassword String 
-  address String
+  phone String? @unique
+  hashedPassword String? 
+  address String?
   favCoffee String[] @db.ObjectId 
+  imageUrl String?
   comment Comment[]
   orders Order[]
 }
