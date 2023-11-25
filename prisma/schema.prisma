@@ -11,27 +11,27 @@ datasource db {
 }
 
 enum RoastLevel {
-  LIGHT
-  MEDIUM
-  DARK
+  Light
+  Medium
+  Dark
 }
 
 enum BeanType {
-  ARABICA
-  ROBUSTA
+  Arabica
+  Robusta
 }
 
 enum Method {
-  WASHED
-  NATURAL
-  HONEY
+  Washed
+  Natural
+  Honey
 }
 
 enum Flavor {
-  FRUITY
-  SPICY
-  NUTTY
-  CHOCOLATEY
+  Fruity
+  Spicy
+  Nutty
+  Chocolatey
 }
 
 model Account {
@@ -98,8 +98,8 @@ model Coffee{
   method Method
   flavor Flavor
   desc String
-  cupImageUrl String?
-  seedImageUrl String?
+  cupImageUrl String
+  packImageUrl String
   stock Int 
   price Float
 }

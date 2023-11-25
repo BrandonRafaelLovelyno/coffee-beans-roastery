@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
 import nextAuthOptions from "@/lib/auth/next-auth-option";
@@ -8,8 +8,9 @@ import AnimatePresence from "@/components/provider/animate-pressence";
 import { Toaster } from "react-hot-toast";
 import ModalProvider from "@/components/provider/modal-provider";
 import ThemeProvider from "@/components/provider/theme-provider";
+import Navbar from "@/components/layout/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <SessionProvider session={session}>
-        <body className={inter.className}>
+        <body className={raleway.className}>
           <ThemeProvider
             defaultTheme="dark"
             enableSystem={false}
@@ -48,7 +49,10 @@ export default async function RootLayout({
                 }}
               />
               <ModalProvider />
-              {children}
+              <div className="flex flex-col">
+                <Navbar />
+                {children}
+              </div>
             </AnimatePresence>
           </ThemeProvider>
         </body>

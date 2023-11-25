@@ -68,84 +68,83 @@ const RegisterModal = () => {
       }}
     >
       <DialogContent className="py-0 min-w-fit">
-        <MotionDivUp
-          className="flex flex-row w-full"
-          delay={0.3}
-          duration={0.3}
-          key="register-modal"
-        >
-          <div className="w-[30%] h-full bg-white" />
-          <div className="flex-1 w-[40rem] py-3 px-5">
-            <DialogHeader>Register</DialogHeader>
-            <DialogDescription className="mb-5">
-              Register for further feature
-            </DialogDescription>
-            <FormProvider {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className="flex flex-col gap-y-5">
-                  <FormField
-                    name="name"
-                    control={form.control}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Enter your name</FormLabel>
-                        <FormControl>
-                          <Input
-                            value={field.value}
-                            onChange={field.onChange}
-                            disabled={form.formState.isSubmitting}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                    disabled={form.formState.isSubmitting}
-                  />
-                  <FormField
-                    name="email"
-                    control={form.control}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Enter your email</FormLabel>
-                        <FormControl>
-                          <Input
-                            value={field.value}
-                            onChange={field.onChange}
-                            disabled={form.formState.isSubmitting}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                    disabled={form.formState.isSubmitting}
-                  />
-                  <FormField
-                    name="password"
-                    control={form.control}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Create your password</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="password"
-                            value={field.value}
-                            onChange={field.onChange}
-                            disabled={form.formState.isSubmitting}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                    disabled={form.formState.isSubmitting}
-                  />
-                </div>
-                <DialogFooter className="mt-5">
-                  <Button variant={"ghost"}>Done!</Button>
-                </DialogFooter>
-              </form>
-            </FormProvider>
+        <div className="flex flex-row w-full">
+          <div className="w-[40%] h-full bg-white" />
+          <div className="flex-1 w-[50rem] py-3 px-5">
+            <MotionDivUp delay={0.3} duration={0.3} key="register-modal">
+              <DialogHeader className="text-lg tracking-widest">
+                Register
+              </DialogHeader>
+              <DialogDescription className="mb-5">
+                Register for further feature
+              </DialogDescription>
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <div className="flex flex-col gap-y-5">
+                    <FormField
+                      name="name"
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Enter your name</FormLabel>
+                          <FormControl>
+                            <Input
+                              value={field.value}
+                              onChange={field.onChange}
+                              disabled={form.formState.isSubmitting}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                      disabled={form.formState.isSubmitting}
+                    />
+                    <FormField
+                      name="email"
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Enter your email</FormLabel>
+                          <FormControl>
+                            <Input
+                              value={field.value}
+                              onChange={field.onChange}
+                              disabled={form.formState.isSubmitting}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                      disabled={form.formState.isSubmitting}
+                    />
+                    <FormField
+                      name="password"
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Create your password</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="password"
+                              value={field.value}
+                              onChange={field.onChange}
+                              disabled={form.formState.isSubmitting}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                      disabled={form.formState.isSubmitting}
+                    />
+                  </div>
+                  <DialogFooter className="mt-5">
+                    <Button variant={"ghost"}>Done!</Button>
+                  </DialogFooter>
+                </form>
+              </FormProvider>
+            </MotionDivUp>
           </div>
-        </MotionDivUp>
+        </div>
       </DialogContent>
     </Dialog>
   );
