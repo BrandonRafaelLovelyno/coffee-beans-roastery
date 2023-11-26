@@ -1,5 +1,3 @@
-import { Coffee } from "@prisma/client";
-
 export type Category =
   | "ORIGIN"
   | "ROAST LEVEL"
@@ -36,3 +34,10 @@ export const SubCategoryMap: Map<Category, SubCategory[]> = new Map([
   ["METHOD", ["Washed", "Natural", "Honey"]],
   ["FLAVOR", ["Fruity", "Nutty", "Spicy", "Chocolatey"]],
 ]);
+
+export type CategoryString =
+  | "origin"
+  | "roastLevel"
+  | "method"
+  | "beanType"
+  | "flavor";

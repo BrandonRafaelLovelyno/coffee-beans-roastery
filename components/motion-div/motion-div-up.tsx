@@ -6,6 +6,7 @@ interface MotionDivUpProps {
   duration: number;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
 const MotionDivUp: React.FC<MotionDivUpProps> = ({
@@ -13,6 +14,7 @@ const MotionDivUp: React.FC<MotionDivUpProps> = ({
   duration,
   children,
   className,
+  onClick,
 }) => {
   return (
     <m.div
@@ -24,6 +26,7 @@ const MotionDivUp: React.FC<MotionDivUpProps> = ({
       }}
       exit={{ opacity: 0, y: 20 }}
       className={className}
+      onClick={onClick ? onClick : () => {}}
     >
       {children}
     </m.div>

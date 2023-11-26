@@ -4,7 +4,7 @@ import { Roboto_Mono } from "next/font/google";
 import MotionDivUp from "@/components/motion-div/motion-div-up";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import CoffeeShowcase from "@/components/coffee/coffee-carousel";
+import CoffeeCarousel from "@/components/coffee/coffee-carousel";
 import useCoffee from "@/hooks/useCoffee";
 import { Category } from "@/lib/types/coffee";
 
@@ -25,8 +25,13 @@ const CoffeePage = () => {
     return <div>sabar bang</div>;
   }
   return (
-    <MotionDivUp key="coffee-page" duration={0.2} delay={0.2}>
-      <main className="flex flex-col items-center w-full h-full">
+    <MotionDivUp
+      key="coffee-page"
+      duration={0.2}
+      delay={0.2}
+      className="w-full h-full"
+    >
+      <main className="flex flex-col items-center w-full h-full pb-7">
         <div
           className={twMerge(
             "flex flex-row w-full gap-x-8 tracking-widest justify-center mt-8 hover:cursor-pointer",
@@ -45,7 +50,7 @@ const CoffeePage = () => {
             </div>
           ))}
         </div>
-        <CoffeeShowcase category={cat} coffee={coffeeRes.data} />
+        <CoffeeCarousel category={cat} coffee={coffeeRes.data} />
       </main>
     </MotionDivUp>
   );

@@ -11,12 +11,12 @@ const NavbarLogo = () => {
       className="flex items-center cursor-pointer gap-x-3"
       onClick={() => router.push("/")}
     >
-      <Image alt="logo" src="/images/Logo.png" height={70} width={70} />
+      <Image alt="logo" src="/images/logo/Logo.png" height={70} width={70} />
       <div className="flex flex-col items-start justify-center gap-y-1">
-        <Image alt="Bean" src="/images/Bean.png" height={80} width={80} />
+        <Image alt="Bean" src="/images/logo/Bean.png" height={80} width={80} />
         <Image
           alt="Masters"
-          src="/images/Masters.png"
+          src="/images/logo/Masters.png"
           height={120}
           width={120}
         />

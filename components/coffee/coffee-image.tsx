@@ -12,26 +12,24 @@ const CoffeeImage: React.FC<CoffeeImageProps> = ({
   packImageUrl,
 }) => {
   return (
-    <MotionDivUp
-      className="flex items-center justify-center w-full h-full"
-      delay={0.1}
-      duration={0.3}
-    >
-      <Image
-        alt="cup-image"
-        className="relative z-10"
-        src={cupImageUrl}
-        height={100}
-        width={100}
-      />
-      <Image
-        alt="pack-image"
-        src={packImageUrl}
-        height={100}
-        width={100}
-        className="absolute -right-3 bottom-3"
-      />
-    </MotionDivUp>
+    <div className="flex items-center justify-center w-full h-full ">
+      <div className="relative w-fit h-fit">
+        <Image
+          alt="cup-image"
+          className="relative -left-[30%] z-10"
+          src={cupImageUrl}
+          height={150}
+          width={150}
+        />
+        <Image
+          alt="pack-image"
+          src={packImageUrl}
+          height={150}
+          width={150}
+          className="absolute -right-[30%] bottom-3"
+        />
+      </div>
+    </div>
   );
 };
 
