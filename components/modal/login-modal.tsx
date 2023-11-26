@@ -50,6 +50,7 @@ const LoginModal = () => {
       await signIn("credentials", {
         email: values.email,
         password: values.password,
+        redirect: false,
       });
       toast.success("Account created");
       modal.onClose();
