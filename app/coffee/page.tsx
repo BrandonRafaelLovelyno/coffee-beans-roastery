@@ -25,36 +25,29 @@ const CoffeePage = () => {
     return <div>sabar bang</div>;
   }
   return (
-    <>
-      <MotionDivUp
-        key="coffee-page"
-        duration={0.2}
-        delay={0.2}
-        className="w-full h-full"
-      >
-        <main className="flex flex-col items-center w-full h-full pb-7">
-          <div
-            className={twMerge(
-              "flex flex-row w-full gap-x-8 tracking-widest justify-center mt-8 hover:cursor-pointer",
-              robotoMono.className
-            )}
-          >
-            {category.map((c) => (
-              <div
-                onClick={() => setCat(c)}
-                className={twMerge(
-                  cat == c && "text-yellow-500",
-                  "font-bold hover:text-yellow-800 duration-300 text-md"
-                )}
-              >
-                {c}
-              </div>
-            ))}
-          </div>
-          <CoffeeCarousel category={cat} coffee={coffeeRes.data} />
-        </main>
-      </MotionDivUp>
-    </>
+    <MotionDivUp duration={0.2} delay={0.2} key={"coffe-page"}>
+      <main className="flex flex-col items-center w-full h-screen pt-24 pb-5">
+        <div
+          className={twMerge(
+            "flex flex-row w-full gap-x-8 tracking-widest justify-center mt-8 hover:cursor-pointer",
+            robotoMono.className
+          )}
+        >
+          {category.map((c) => (
+            <div
+              onClick={() => setCat(c)}
+              className={twMerge(
+                cat == c && "text-yellow-500",
+                "font-bold hover:text-yellow-800 duration-300 text-md"
+              )}
+            >
+              {c}
+            </div>
+          ))}
+        </div>
+        <CoffeeCarousel category={cat} coffee={coffeeRes.data} />
+      </main>
+    </MotionDivUp>
   );
 };
 

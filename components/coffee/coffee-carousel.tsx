@@ -59,7 +59,12 @@ const CoffeeCarousel: React.FC<CoffeeCarouselProps> = ({
   });
 
   return (
-    <MotionDivUp duration={0.2} delay={0} className="relative w-full h-full">
+    <MotionDivUp
+      duration={0.4}
+      delay={0}
+      className="relative w-full h-full mt-5"
+      key={category}
+    >
       <Swiper spaceBetween={50} slidesPerView={1} className="w-full h-full">
         {subCategories.map((sc) => {
           if (coffeesPerSub[sc].length == 0) {

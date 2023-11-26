@@ -23,7 +23,11 @@ const CoffeeThumbnail: React.FC<CoffeeThumbnailProps> = ({
       className={twMerge("w-full h-full px-3 cursor-pointer")}
       onClick={onClick}
     >
-      <CoffeeImage cupImageUrl={cupImageUrl} packImageUrl={packImageUrl} />
+      <CoffeeImage
+        size={150}
+        cupImageUrl={cupImageUrl}
+        packImageUrl={packImageUrl}
+      />
       <div></div>
     </div>
   );

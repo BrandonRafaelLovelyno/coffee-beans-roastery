@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Caveat } from "next/font/google";
 import { Coffee } from "@prisma/client";
@@ -10,6 +10,10 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import CategoryCard from "./category-card";
 import CoffeeThumbnail from "./coffee-thumbnail";
 import MotionDivUp from "../motion-div/motion-div-up";
+import { FaCartPlus, FaRegHeart } from "react-icons/fa";
+import { BiCommentDetail } from "react-icons/bi";
+import useModal from "@/hooks/useModal";
+
 const caveat = Caveat({ subsets: ["latin"], weight: ["400"] });
 
 interface CoffeeSlideProps {
@@ -26,6 +30,7 @@ const categoryString: CategoryString[] = [
 ];
 
 const CoffeeSlide: React.FC<CoffeeSlideProps> = ({ coffee, subCategory }) => {
+  const modal = useModal();
   const [index, setIndex] = useState<number>(0);
   const finalIndex = index % coffee.length;
   const finalCoffee = coffee[finalIndex];
@@ -33,7 +38,7 @@ const CoffeeSlide: React.FC<CoffeeSlideProps> = ({ coffee, subCategory }) => {
     return <div>no coffee</div>;
   }
   return (
-    <div className="flex flex-row w-full h-full px-0 mt-4 md:px-10 lg:px-20">
+    <div className="flex flex-row w-full h-full px-0 md:px-10 lg:px-20">
       <div className="w-[65%] flex flex-col justify-between pl-5 h-full gap-y-5">
         <div className="min-h-fit h-[40%]  flex flex-col">
           <div className="flex-1">
@@ -57,7 +62,7 @@ const CoffeeSlide: React.FC<CoffeeSlideProps> = ({ coffee, subCategory }) => {
         <MotionDivUp
           duration={0.3}
           delay={0.5}
-          className="h-[25%] w-full  flex flex-row gap-x-4 mb-4"
+          className="h-[25%] w-full flex flex-row gap-x-4 mb-4"
         >
           {categoryString.map((cat) => (
             <div className="flex-1 h-full">
@@ -90,16 +95,41 @@ const CoffeeSlide: React.FC<CoffeeSlideProps> = ({ coffee, subCategory }) => {
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>
-      <div className="items-start flex-1 h-full">
+      <div className="items-start w-full pl-8">
         <div className="flex flex-col h-full">
-          <div className="flex-1 ">
+          <div className="flex-1">
             <CoffeeImage
+              size={120}
               cupImageUrl={finalCoffee.cupImageUrl}
               packImageUrl={finalCoffee.packImageUrl}
               key={finalCoffee.id}
             />
           </div>
-          <div className="h-[30%] w-[10px] bg-white"></div>
+          <div className="h-[30%] w-full flex flex-col items-center justify-end ">
+            <p className="w-full text-left text-yellow-500">
+              Stock : {finalCoffee.stock}
+            </p>
+            <div className="flex flex-row justify-center w-full gap-x-3">
+              <div className="justify-start flex-1">
+                <span className="text-4xl">{`$${finalCoffee.price}`}</span>
+              </div>
+              <div className="flex justify-center flex-1 gap-x-5">
+                <button
+                  onClick={() => {
+                    modal.onOpen("buy", { coffee: finalCoffee });
+                  }}
+                >
+                  <FaCartPlus size={40} />
+                </button>
+                <button>
+                  <FaRegHeart size={40} />
+                </button>
+                <button>
+                  <BiCommentDetail size={40} />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
