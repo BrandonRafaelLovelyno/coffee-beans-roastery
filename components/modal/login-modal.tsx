@@ -120,6 +120,21 @@ const LoginModal = () => {
                       disabled={form.formState.isSubmitting}
                     />
                   </div>
+                  <span className="mt-5">
+                    Do not have an account?
+                    <button
+                      className="ml-3 font-bold text-yellow-500"
+                      onClick={() => modal.onOpen("register", {})}
+                    >
+                      register
+                    </button>
+                  </span>
+                  <div
+                    className="mt-5 font-bold text-yellow-400 cursor-pointer"
+                    onClick={() => signIn("google")}
+                  >
+                    Login with google
+                  </div>
                   <DialogFooter className="mt-5">
                     <Button variant={"ghost"}>Done!</Button>
                   </DialogFooter>

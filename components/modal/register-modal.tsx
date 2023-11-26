@@ -137,6 +137,15 @@ const RegisterModal = () => {
                       disabled={form.formState.isSubmitting}
                     />
                   </div>
+                  <span className="mt-5">
+                    Have an account?
+                    <button
+                      className="ml-3 font-bold text-yellow-500"
+                      onClick={() => modal.onOpen("login", {})}
+                    >
+                      log in
+                    </button>
+                  </span>
                   <DialogFooter className="mt-5">
                     <Button variant={"ghost"}>Done!</Button>
                   </DialogFooter>

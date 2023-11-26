@@ -57,7 +57,12 @@ const Navbar = () => {
         </div>
         <div
           onClick={() => {
-            modal.onOpen("login", {});
+            if (status == "unauthenticated") {
+              modal.onOpen("login", {});
+            }
+            if (status == "authenticated") {
+              modal.onOpen("logout", {});
+            }
           }}
           className="cursor-pointer"
         >
