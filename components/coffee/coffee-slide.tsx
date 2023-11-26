@@ -60,7 +60,7 @@ const CoffeeSlide: React.FC<CoffeeSlideProps> = ({ coffee, subCategory }) => {
           className="h-[25%] w-full  flex flex-row gap-x-4 mb-4"
         >
           {categoryString.map((cat) => (
-            <div className="flex-1">
+            <div className="flex-1 h-full">
               <CategoryCard
                 categoryString={cat}
                 subCategory={finalCoffee[cat] as SubCategory}

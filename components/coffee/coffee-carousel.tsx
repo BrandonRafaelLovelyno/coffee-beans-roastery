@@ -7,6 +7,7 @@ import CoffeeSlide from "./coffee-slide";
 import MotionDivUp from "../motion-div/motion-div-up";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 interface CoffeeCarouselProps {
   category: Category;
@@ -58,13 +59,8 @@ const CoffeeCarousel: React.FC<CoffeeCarouselProps> = ({
   });
 
   return (
-    <MotionDivUp
-      delay={0}
-      duration={0.6}
-      key={category}
-      className="w-full h-full mt-20"
-    >
-      <Swiper spaceBetween={50} slidesPerView={1} direction="horizontal">
+    <MotionDivUp duration={0.2} delay={0} className="relative w-full h-full">
+      <Swiper spaceBetween={50} slidesPerView={1} className="w-full h-full">
         {subCategories.map((sc) => {
           if (coffeesPerSub[sc].length == 0) {
             return;
@@ -79,7 +75,6 @@ const CoffeeCarousel: React.FC<CoffeeCarouselProps> = ({
             </SwiperSlide>
           );
         })}
-        <button onClick={() => swiper.slideNext()}>hai</button>
       </Swiper>
     </MotionDivUp>
   );
