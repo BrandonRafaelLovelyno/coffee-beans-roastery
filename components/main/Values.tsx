@@ -9,33 +9,35 @@ const raleway = Raleway({ subsets: ["latin"] });
 
 const Values = () => {
   return (
-    <div className="px-[2vw] relative flex flex-col items-center justify-center w-full min-h-[200vh] overflow-clip bg-[#141117]">
-      <div className="w-full 2xl:w-[1536px] h-screen flex flex-col items-center justify-center py-[5vh]">
+    <div className="px-[8vw] relative flex flex-col items-center justify-center w-full min-h-[60vh] lg:min-h-[200vh] overflow-clip bg-[#141117] gap-[7vh]">
+      <div className="w-full 2xl:w-[1536px] h-[30vh] lg:h-screen flex flex-col items-center justify-center py-[5vh]">
         <p
           className={
-            "text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " + raleway.className
+            "text-[6vw]/[5vw] lg:text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " +
+            raleway.className
           }
         >
           That's why we support
         </p>
         <p
           className={
-            "text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " + canvas_black.className
+            "text-[6vw]/[5vw] lg:text-[4vw]/[4vw] 2xl:text-[61px]/[61px] mb-[3vh] " +
+            canvas_black.className
           }
         >
           No Straw!
         </p>
-        <div className="w-full h-full 2xl:h-[600px] flex items-center justify-center">
+        <div className="w-full h-full 2xl:h-[600px] flex max-lg:flex-col items-center justify-center">
           <div
             className={
-              "w-[40%] text-[3.5vw]/[3.5vw] 2xl:text-[54px]/[54px] " +
+              "w-full lg:w-[40%] text-[5vw]/[4vw] lg:text-[3.5vw]/[3.5vw] 2xl:text-[54px]/[54px] max-lg:text-center max-lg:order-2 " +
               raleway.className
             }
           >
             <p>Why don't just</p>
             <p>Slurp it directly?</p>
           </div>
-          <div className="w-[60%] 2xl:w-[768px]">
+          <div className="w-[60%] 2xl:w-[768px] max-lg:order-1 mb-[2vh]">
             <MyPict
               alt=""
               src="/images/decoration/cups.png"
@@ -45,23 +47,25 @@ const Values = () => {
           </div>
         </div>
       </div>
-      <div className="w-full 2xl:w-[1536px] h-screen flex flex-col items-center justify-center py-[5vh]">
+      <div className="w-full 2xl:w-[1536px] h-[30vh] lg:h-screen flex flex-col items-center justify-center py-[5vh]">
         <p
           className={
-            "text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " + raleway.className
+            "text-[6vw]/[5vw] lg:text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " +
+            raleway.className
           }
         >
           And of course with an
         </p>
         <p
           className={
-            "text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " + canvas_black.className
+            "text-[6vw]/[5vw] lg:text-[4vw]/[4vw] 2xl:text-[61px]/[61px] mb-[3vh] " +
+            canvas_black.className
           }
         >
           Eco-Friendly Packaging!
         </p>
-        <div className="w-full h-full 2xl:h-[600px] flex items-center justify-center">
-          <div className="w-[60%] 2xl:w-[768px]">
+        <div className="w-full h-full 2xl:h-[600px] flex max-lg:flex-col items-center justify-center">
+          <div className="w-[60%] 2xl:w-[768px] mb-[2vh]">
             <MyPict
               alt=""
               src="/images/decoration/sachets.png"
@@ -71,7 +75,7 @@ const Values = () => {
           </div>
           <div
             className={
-              "w-[40%] text-[3.5vw]/[3.5vw] 2xl:text-[54px]/[54px] flex flex-col items-end text-end" +
+              "w-full lg:w-[40%] text-[5vw]/[4vw] lg:text-[3.5vw]/[3.5vw] 2xl:text-[54px]/[54px] flex flex-col items-center lg:items-end text-center lg:text-end " +
               raleway.className
             }
           >

@@ -27,6 +27,10 @@ const navLinks: NavLinks[] = [
     title: "CART",
     href: "/cart",
   },
+  {
+    title: "ORDERED",
+    href: "/ordered",
+  },
 ];
 
 const Navbar = () => {

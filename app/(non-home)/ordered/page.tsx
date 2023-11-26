@@ -1,6 +1,6 @@
 "use client";
+import ProgressLoader from "@/components/loader/progress-loader";
 import MotionDivUp from "@/components/motion-div/motion-div-up";
-import OrderCard from "@/components/order/order-card";
 import PaidOrderCard from "@/components/order/paid-order-card";
 import useOrder from "@/hooks/useOrder";
 import React, { useMemo } from "react";
@@ -10,7 +10,11 @@ const page = () => {
   const { data: orderData, isLoading } = useOrder();
   const body = useMemo(() => {
     if (isLoading || !orderData?.data) {
-      return <div>sabar bg</div>;
+      return (
+        <div className="flex items-center justify-center w-full h-full">
+          <ProgressLoader />
+        </div>
+      );
     } else {
       const paidOrder = orderData.data.filter((o) => o.hasPaid);
       if (paidOrder.length == 0) {

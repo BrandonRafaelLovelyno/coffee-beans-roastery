@@ -65,7 +65,14 @@ const CoffeeCarousel: React.FC<CoffeeCarouselProps> = ({
       className="relative w-full h-full mt-5"
       key={category}
     >
-      <Swiper spaceBetween={50} slidesPerView={1} className="w-full h-full">
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        className="relative w-full h-full"
+      >
+        <button className="left-3 bottom-[50%] absolute">
+          <IoIosArrowBack size={50} />
+        </button>
         {subCategories.map((sc) => {
           if (coffeesPerSub[sc].length == 0) {
             return;
@@ -80,6 +87,9 @@ const CoffeeCarousel: React.FC<CoffeeCarouselProps> = ({
             </SwiperSlide>
           );
         })}
+        <button className="absolute right-3 bottom-[50%]">
+          <IoIosArrowForward size={50} />
+        </button>
       </Swiper>
     </MotionDivUp>
   );

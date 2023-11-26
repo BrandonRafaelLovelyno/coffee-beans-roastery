@@ -15,6 +15,7 @@ export async function PATCH(
     if (!session) {
       throw new Error("Unauthorized");
     }
+    const progress = Math.floor(Math.random() * 101);
     const updatedOrder = await prismadb.order.update({
       where: {
         id: params.orderId,
@@ -22,6 +23,7 @@ export async function PATCH(
       },
       data: {
         hasPaid: true,
+        progress,
       },
     });
     if (!updatedOrder) {

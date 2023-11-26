@@ -8,6 +8,8 @@ import CoffeeCarousel from "@/components/coffee/coffee-carousel";
 import useCoffee from "@/hooks/useCoffee";
 import { Category } from "@/lib/types/coffee";
 import "swiper/css";
+import { CoffeesRes } from "@/lib/types/api-response";
+import ProgressLoader from "@/components/loader/progress-loader";
 const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
 const category: Category[] = [
@@ -22,7 +24,11 @@ const CoffeePage = () => {
   const [cat, setCat] = useState<Category>("ORIGIN");
   const { data: coffeeRes, isLoading, mutate } = useCoffee();
   if (isLoading || !coffeeRes || !coffeeRes.data) {
-    return <div>sabar bang</div>;
+    return (
+      <div className="flex items-center justify-center w-full h-screen">
+        <ProgressLoader />
+      </div>
+    );
   }
   return (
     <MotionDivUp duration={0.2} delay={0.2} key={"coffe-page"}>
@@ -45,7 +51,10 @@ const CoffeePage = () => {
             </div>
           ))}
         </div>
-        <CoffeeCarousel category={cat} coffee={coffeeRes.data} />
+        <CoffeeCarousel
+          category={cat}
+          coffee={(coffeeRes as CoffeesRes).data}
+        />
       </main>
     </MotionDivUp>
   );

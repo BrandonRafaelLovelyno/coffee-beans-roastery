@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useSWRConfig } from "swr";
+import ProgressLoader from "../loader/progress-loader";
 
 interface OrderCardProps {
   order: Order;
@@ -32,7 +33,11 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
   };
   const body = useMemo(() => {
     if (isLoading || !coffeeData?.data) {
-      return <div>sabar bg</div>;
+      return (
+        <div className="flex items-center justify-center w-full h-full">
+          <ProgressLoader />
+        </div>
+      );
     } else {
       const finalCoffee = (coffeeData as CoffeeRes).data;
       return (

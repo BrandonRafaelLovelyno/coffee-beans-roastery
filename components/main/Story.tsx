@@ -21,7 +21,7 @@ const Story = () => {
   ];
 
   return (
-    <div className="relative flex items-center justify-center w-full min-h-screen overflow-clip bg-[#141117]">
+    <div className="relative flex items-center justify-center w-full min-h-[30vh] lg:min-h-screen overflow-clip bg-[#141117]">
       <MyPict
         alt=""
         src="/images/decoration/scattered_coffees.png"
@@ -35,7 +35,8 @@ const Story = () => {
         <div>
           <p
             className={
-              "text-[4vw]/[3vw] 2xl:text-[61px]/[46px] " + raleway.className
+              "text-[6vw]/[5vw] lg:text-[4vw]/[3vw] 2xl:text-[61px]/[46px] " +
+              raleway.className
             }
           >
             {"What is our "}

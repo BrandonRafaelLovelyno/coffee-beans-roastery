@@ -49,7 +49,7 @@ export default async function RootLayout({
                 }}
               />
               <ModalProvider />
-              <div className="flex flex-col w-full h-fit">
+              <div className="flex flex-col w-full h-fit select-none">
                 <Navbar />
                 {children}
               </div>

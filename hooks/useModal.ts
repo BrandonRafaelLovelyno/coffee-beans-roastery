@@ -1,7 +1,7 @@
 import { Coffee } from "@prisma/client";
 import { create } from "zustand";
 
-export type ModalType = "register" | "login" | "buy";
+export type ModalType = "register" | "login" | "buy" | "logout";
 
 interface ModalStore {
   type: ModalType;

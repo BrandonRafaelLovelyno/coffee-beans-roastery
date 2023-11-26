@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import { Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import MyPict from "@/components/MyPict";
@@ -9,29 +12,39 @@ const canvas_black = localFont({
 const raleway = Raleway({ subsets: ["latin"] });
 
 const Products = () => {
+  const router = useRouter();
+
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-screen overflow-clip">
+    <div className="relative flex flex-col items-center justify-center w-full h-[40vh] lg:h-screen overflow-clip">
       <div className="absolute w-full h-full z-[-100] bg-[#141117]" />
 
-      <div className="flex flex-col h-[35%] items-center justify-center text-center">
+      <div className="flex flex-col h-[35%] items-center justify-center text-center max-lg:pt-[10vh]">
         <p
           className={
-            "text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " + raleway.className
+            "text-[6vw]/[5vw] lg:text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " +
+            raleway.className
           }
         >
           {"Let's check"}
         </p>
         <p
           className={
-            "text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " + canvas_black.className
+            "text-[6vw]/[5vw] lg:text-[4vw]/[4vw] 2xl:text-[61px]/[61px] " +
+            canvas_black.className
           }
         >
           {"Our products below!"}
         </p>
-        <p>{"See More"}</p>
-        <Button />
+        <Button
+          className="mt-8"
+          onClick={() => {
+            router.push("/coffee");
+          }}
+        >
+          {"See More"}
+        </Button>
       </div>
-      <div className="relative flex items-end w-[55%] 2xl:w-[844px] h-[65%]">
+      <div className="relative flex items-end w-[75%] lg:w-[55%] 2xl:w-[844px] h-[65%]">
         <MyPict
           alt=""
           src="/images/decoration/products.png"

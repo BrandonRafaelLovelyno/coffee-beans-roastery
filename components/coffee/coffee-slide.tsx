@@ -52,7 +52,6 @@ const CoffeeSlide: React.FC<CoffeeSlideProps> = ({ coffee, subCategory }) => {
             </h2>
             <h3 className="mt-5 text-xl font-bold tracking-wide">
               {finalCoffee.name}
-              <p>{index}</p>
             </h3>
           </div>
           <ScrollArea className="h-[50%] text-md">
